@@ -21,7 +21,9 @@ export default async function AdminTeamPage() {
       >
         {rows.map((m) => (
           <tr key={m.id} className="hover:bg-[var(--surface)]">
-            <td className="px-4 py-3 font-medium text-[var(--ink)]">{m.name}</td>
+            <td className="px-4 py-3 font-medium text-[var(--ink)]">
+              {m.name}
+            </td>
             <td className="px-4 py-3 text-[var(--muted)]">{m.position}</td>
             <td className="px-4 py-3 text-[var(--muted)]">{m.term ?? "—"}</td>
             <td className="px-4 py-3 text-[var(--muted)]">

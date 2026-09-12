@@ -100,10 +100,7 @@ export default function Navbar({ societies }: { societies: NavSociety[] }) {
                 className="h-11 w-auto sm:h-12"
                 priority
               />
-              <span
-                aria-hidden
-                className="h-9 w-px bg-[var(--line-strong)]"
-              />
+              <span aria-hidden className="h-9 w-px bg-[var(--line-strong)]" />
               <Image
                 src="/logo.png"
                 alt="Manipal Institute of Technology, Bengaluru"

@@ -39,7 +39,11 @@ export default function Intro() {
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: [0, 0.7, 22], opacity: [0, 0.55, 0] }}
-            transition={{ duration: 2.7, times: [0, 0.32, 1], ease: "easeInOut" }}
+            transition={{
+              duration: 2.7,
+              times: [0, 0.32, 1],
+              ease: "easeInOut",
+            }}
             className="absolute h-64 w-64 rounded-full bg-[var(--accent)] blur-2xl"
           />
 

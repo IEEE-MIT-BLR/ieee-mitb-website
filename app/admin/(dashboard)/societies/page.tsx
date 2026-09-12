@@ -21,7 +21,9 @@ export default async function AdminSocietiesPage() {
       >
         {rows.map((s) => (
           <tr key={s.id} className="hover:bg-[var(--surface)]">
-            <td className="px-4 py-3 font-medium text-[var(--ink)]">{s.name}</td>
+            <td className="px-4 py-3 font-medium text-[var(--ink)]">
+              {s.name}
+            </td>
             <td className="px-4 py-3 text-[var(--muted)]">{s.slug}</td>
             <td className="px-4 py-3 text-[var(--muted)]">{s.type}</td>
             <td className="px-4 py-3 text-[var(--muted)]">{s.displayOrder}</td>

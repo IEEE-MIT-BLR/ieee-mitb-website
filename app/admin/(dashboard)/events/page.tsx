@@ -30,8 +30,12 @@ export default async function AdminEventsPage({
       >
         {rows.map((e) => (
           <tr key={e.id} className="hover:bg-[var(--surface)]">
-            <td className="px-4 py-3 font-medium text-[var(--ink)]">{e.title}</td>
-            <td className="px-4 py-3 text-[var(--muted)]">{e.societyName ?? "—"}</td>
+            <td className="px-4 py-3 font-medium text-[var(--ink)]">
+              {e.title}
+            </td>
+            <td className="px-4 py-3 text-[var(--muted)]">
+              {e.societyName ?? "—"}
+            </td>
             <td className="px-4 py-3 text-[var(--muted)]">
               {formatDate(e.startAt)}
             </td>

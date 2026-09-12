@@ -180,10 +180,7 @@ export default async function SocietyPage({ params }: { params: Params }) {
             </h3>
             <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 md:grid-cols-3">
               {faculty.map((f) => (
-                <div
-                  key={f.id}
-                  className="border-t border-[var(--line)] pt-5"
-                >
+                <div key={f.id} className="border-t border-[var(--line)] pt-5">
                   <h4 className="text-lg">{f.name}</h4>
                   {f.roleTitle && (
                     <p className="font-mono text-xs text-[var(--muted)]">

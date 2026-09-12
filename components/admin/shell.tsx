@@ -86,7 +86,10 @@ export default function AdminShell({
           )}
         >
           <div className="mb-8 hidden md:block">
-            <Link href="/admin" className="font-display text-lg text-[var(--ink)]">
+            <Link
+              href="/admin"
+              className="font-display text-lg text-[var(--ink)]"
+            >
               IEEE <span className="text-[var(--accent)]">×</span> Admin
             </Link>
           </div>

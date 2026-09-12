@@ -45,7 +45,9 @@ export default function Pagination({
             ‹
           </Link>
         ) : (
-          <span className={`${baseBtn} cursor-not-allowed text-[var(--disabled)]`}>
+          <span
+            className={`${baseBtn} cursor-not-allowed text-[var(--disabled)]`}
+          >
             ‹
           </span>
         )}
@@ -80,7 +82,9 @@ export default function Pagination({
             ›
           </Link>
         ) : (
-          <span className={`${baseBtn} cursor-not-allowed text-[var(--disabled)]`}>
+          <span
+            className={`${baseBtn} cursor-not-allowed text-[var(--disabled)]`}
+          >
             ›
           </span>
         )}

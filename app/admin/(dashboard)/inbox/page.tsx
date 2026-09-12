@@ -30,7 +30,9 @@ export default async function AdminInboxPage() {
               <div className="font-medium text-[var(--ink)]">{m.name}</div>
               <div className="text-[var(--muted)]">{m.email}</div>
             </td>
-            <td className="px-4 py-3 text-[var(--muted)]">{m.subject ?? "—"}</td>
+            <td className="px-4 py-3 text-[var(--muted)]">
+              {m.subject ?? "—"}
+            </td>
             <td className="px-4 py-3">
               <StatusBadge status={m.status} />
             </td>
@@ -73,7 +75,9 @@ export default async function AdminInboxPage() {
       >
         {subscribers.map((s) => (
           <tr key={s.id} className="hover:bg-[var(--surface)]">
-            <td className="px-4 py-3 font-medium text-[var(--ink)]">{s.email}</td>
+            <td className="px-4 py-3 font-medium text-[var(--ink)]">
+              {s.email}
+            </td>
             <td className="px-4 py-3 text-[var(--muted)]">
               {s.isConfirmed ? "Yes" : "No"}
             </td>

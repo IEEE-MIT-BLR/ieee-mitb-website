@@ -30,8 +30,12 @@ export default async function AdminArticlesPage({
       >
         {rows.map((a) => (
           <tr key={a.id} className="hover:bg-[var(--surface)]">
-            <td className="px-4 py-3 font-medium text-[var(--ink)]">{a.title}</td>
-            <td className="px-4 py-3 text-[var(--muted)]">{a.societyName ?? "—"}</td>
+            <td className="px-4 py-3 font-medium text-[var(--ink)]">
+              {a.title}
+            </td>
+            <td className="px-4 py-3 text-[var(--muted)]">
+              {a.societyName ?? "—"}
+            </td>
             <td className="px-4 py-3 text-[var(--muted)]">
               {a.publicationDate ? formatDate(a.publicationDate) : "—"}
             </td>
