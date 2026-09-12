@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 /**
- * Brand intro — "IEEE × MANIPAL" in black + orange, which morphs (an orange
+ * Brand intro — "IEEE × MITBLR" in black + orange, which morphs (an orange
  * disc swells from the centre like the globe emerging) and dissolves into the
  * homescreen. Plays once per session; skipped entirely under
  * `prefers-reduced-motion`. Renders nothing on the server to avoid a flash.
@@ -33,7 +33,7 @@ export default function Intro() {
           key="intro"
           exit={{ opacity: 0 }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[var(--canvas)]"
+          className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-(--canvas)"
         >
           {/* Morph disc — swells from globe-size to fill, then fades */}
           <motion.div
@@ -44,15 +44,15 @@ export default function Intro() {
               times: [0, 0.32, 1],
               ease: "easeInOut",
             }}
-            className="absolute h-64 w-64 rounded-full bg-[var(--accent)] blur-2xl"
+            className="absolute h-64 w-64 rounded-full bg-(--accent) blur-2xl"
           />
 
           {/* Wordmark */}
-          <div className="relative z-10 flex items-baseline gap-[0.2em] font-display text-[clamp(2.25rem,11vw,8rem)] leading-none tracking-tight text-[var(--ink)]">
+          <div className="relative z-10 flex items-baseline gap-[0.2em] font-display text-[clamp(2.25rem,11vw,8rem)] leading-none tracking-tight text-(--ink)">
             {[
-              { t: "IEEE", c: "text-[var(--ink)]", d: 0.1 },
-              { t: "×", c: "text-[var(--accent)]", d: 0.28 },
-              { t: "MANIPAL", c: "text-[var(--ink)]", d: 0.42 },
+              { t: "IEEE", c: "text-(--ink)", d: 0.1 },
+              { t: "×", c: "text-(--accent)", d: 0.28 },
+              { t: "MITBLR", c: "text-(--ink)", d: 0.42 },
             ].map((w) => (
               <span key={w.t} className="block overflow-hidden">
                 <motion.span

@@ -4,13 +4,13 @@ import Globe from "@/components/ui/globe";
 
 /**
  * Home hero — the spinning globe is the conjunction between "IEEE" and
- * "MANIPAL". The two words flank the planet and tuck their inner edges just
+ * "MITBLR". The two words flank the planet and tuck their inner edges just
  * behind its rim (globe on z-20, words on z-10), so the wordmark stays fully
  * legible while still reading as wrapping around the earth.
  */
 export default function GlobeHero() {
   const word =
-    "font-display leading-none tracking-tight text-[var(--ink)] text-[clamp(2.75rem,11vw,8.5rem)]";
+    "font-display leading-none tracking-tight text-(--ink) text-[clamp(2.75rem,11vw,8.5rem)]";
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
@@ -28,13 +28,13 @@ export default function GlobeHero() {
         </div>
 
         <span className="relative z-10 sm:-ml-[0.32em]">
-          <span className={word}>MANIPAL</span>
+          <span className={word}>MITBLR</span>
         </span>
       </div>
 
       {/* Foreground copy + CTA */}
       <div className="absolute right-0 bottom-12 left-0 z-30 mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 text-center">
-        <p className="max-w-xl text-base leading-relaxed text-[var(--ink-2)] sm:text-lg">
+        <p className="max-w-xl text-base leading-relaxed text-(--ink-2) sm:text-lg">
           The IEEE Student Branch at Manipal Institute of Technology, Bengaluru
           — advancing technology for humanity.
         </p>
