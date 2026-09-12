@@ -46,13 +46,13 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
       <div className={GRID} />
       <div className="relative px-8 text-center">
         <p className="eyebrow justify-center">Who we are</p>
-        <h2 className="mt-6 text-5xl leading-[1.05] tracking-tight sm:text-6xl 2xl:text-7xl">
+        <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight sm:text-6xl 2xl:text-7xl">
           Advancing technology
           <br />
           for <span className="italic text-[var(--accent)]">humanity</span>,
           <br />
           from Bengaluru.
-        </h2>
+        </h1>
       </div>
     </motion.section>
   );
