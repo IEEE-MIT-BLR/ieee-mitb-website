@@ -18,14 +18,18 @@ const IMAGES = [
   "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1600&auto=format&fit=crop",
 ];
 
-export default function GalleryScroll() {
+export default function GalleryScroll({
+  societyCount,
+}: {
+  societyCount: number;
+}) {
   return (
     <ContainerScroll className="h-[300vh]">
       <BentoGrid className="sticky top-0 left-0 z-0 h-screen w-full p-4">
         {IMAGES.map((url, i) => (
           <BentoCell
             key={i}
-            className="overflow-hidden rounded-[4px] border border-[var(--line)]"
+            className="overflow-hidden rounded-[4px] border border-(--line)"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -40,11 +44,11 @@ export default function GalleryScroll() {
       <ContainerScale className="relative z-10 px-6 text-center">
         <p className="eyebrow justify-center">Glimpses</p>
         <h2 className="mt-5 text-5xl tracking-tight sm:text-7xl">
-          From the <span className="italic text-[var(--accent)]">branch</span>
+          From the <span className="italic text-(--accent)">branch</span>
         </h2>
-        <p className="mx-auto my-6 max-w-xl text-[var(--ink-2)]">
-          Workshops, builds, and competitions across our ten societies — a year
-          of advancing technology, together.
+        <p className="mx-auto my-6 max-w-xl text-(--ink-2)">
+          Workshops, builds, and competitions across our {societyCount}{" "}
+          societies — a year of advancing technology, together.
         </p>
         <div className="flex items-center justify-center">
           <Link href="/events" className="btn-primary">

@@ -35,13 +35,18 @@ interface SectionProps {
   scrollYProgress: MotionValue<number>;
 }
 
+/** Section 2 also names how many societies the branch runs. */
+interface Section2Props extends SectionProps {
+  societyCount: number;
+}
+
 const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
   return (
     <motion.section
       style={{ scale, rotate }}
-      className="sticky top-0 flex h-screen flex-col items-center justify-center bg-[var(--canvas-deep)] text-[var(--ink)]"
+      className="sticky top-0 flex h-screen flex-col items-center justify-center bg-(--canvas-deep) text-(--ink)"
     >
       <div className={GRID} />
       <div className="relative px-8 text-center">
@@ -49,7 +54,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
         <h1 className="mt-6 text-5xl leading-[1.05] tracking-tight sm:text-6xl 2xl:text-7xl">
           Advancing technology
           <br />
-          for <span className="italic text-[var(--accent)]">humanity</span>,
+          for <span className="italic text-(--accent)">humanity</span>,
           <br />
           from Bengaluru.
         </h1>
@@ -58,30 +63,33 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
   );
 };
 
-const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
+const Section2: React.FC<Section2Props> = ({
+  scrollYProgress,
+  societyCount,
+}) => {
   const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
 
   return (
     <motion.section
       style={{ scale, rotate }}
-      className="relative h-screen overflow-hidden bg-[var(--canvas)] text-[var(--ink)]"
+      className="relative h-screen overflow-hidden bg-background text-(--ink)"
     >
       <div className={GRID} />
       <article className="relative z-10 container mx-auto px-6">
         <p className="eyebrow py-8">IEEE · MIT Bengaluru</p>
         <h2 className="max-w-4xl pb-10 text-4xl leading-[1.08] tracking-tight sm:text-5xl">
           A student branch of IEEE at{" "}
-          <span className="text-[var(--accent)]">
+          <span className="text-(--accent)">
             Manipal Institute of Technology, Bengaluru
           </span>{" "}
-          — ten societies, one charter.
+          — {societyCount} societies, one charter.
         </h2>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {IMAGES.map((img) => (
             <div
               key={img.src}
-              className="overflow-hidden rounded-md border border-[var(--line)]"
+              className="overflow-hidden rounded-md border border-(--line)"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -97,20 +105,25 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
   );
 };
 
-const HeroScroll = forwardRef<HTMLElement>((_props, _ref) => {
-  const container = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
+const HeroScroll = forwardRef<HTMLElement, { societyCount: number }>(
+  ({ societyCount }, _ref) => {
+    const container = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+      target: container,
+      offset: ["start start", "end end"],
+    });
 
-  return (
-    <main ref={container} className="relative h-[200vh] bg-[var(--canvas)]">
-      <Section1 scrollYProgress={scrollYProgress} />
-      <Section2 scrollYProgress={scrollYProgress} />
-    </main>
-  );
-});
+    return (
+      <main ref={container} className="relative h-[200vh] bg-background">
+        <Section1 scrollYProgress={scrollYProgress} />
+        <Section2
+          scrollYProgress={scrollYProgress}
+          societyCount={societyCount}
+        />
+      </main>
+    );
+  },
+);
 
 HeroScroll.displayName = "HeroScroll";
 

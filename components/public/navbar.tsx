@@ -50,6 +50,9 @@ const NAV_ITEMS: LinkHoverItem[] = [
 const EASE = [0.2, 0, 0, 1] as const;
 
 export default function Navbar({ societies }: { societies: NavSociety[] }) {
+  // Quick links list the societies proper. Women in Engineering is an affinity
+  // group and is reached via the "Societies" nav item, which covers both.
+  const chapters = societies.filter((s) => s.type === "society");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -76,12 +79,12 @@ export default function Navbar({ societies }: { societies: NavSociety[] }) {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-[95]">
+      <header className="fixed inset-x-0 top-0 z-95">
         <div
           className={cn(
             "border-b transition-colors duration-300",
             scrolled && !open
-              ? "border-[var(--line)] bg-[var(--canvas)]/70 backdrop-blur-xl"
+              ? "border-(--line) bg-(--canvas)/70 backdrop-blur-xl"
               : "border-transparent bg-transparent",
           )}
         >
@@ -100,7 +103,7 @@ export default function Navbar({ societies }: { societies: NavSociety[] }) {
                 className="h-11 w-auto sm:h-12"
                 priority
               />
-              <span aria-hidden className="h-9 w-px bg-[var(--line-strong)]" />
+              <span aria-hidden className="h-9 w-px bg-(--line-strong)" />
               <Image
                 src="/logo.png"
                 alt="Manipal Institute of Technology, Bengaluru"
@@ -115,22 +118,22 @@ export default function Navbar({ societies }: { societies: NavSociety[] }) {
               onClick={() => setOpen((o) => !o)}
               aria-expanded={open}
               aria-label={open ? "Close menu" : "Open menu"}
-              className="group flex items-center gap-3"
+              className="group flex items-center gap-3 cursor-pointer"
             >
-              <span className="font-mono text-xs tracking-[0.2em] text-[var(--ink)] uppercase">
+              <span className="font-mono text-xs tracking-[0.2em] text-(--ink) uppercase">
                 {open ? "Close" : "Menu"}
               </span>
               <span className="relative flex h-3 w-6 flex-col justify-between">
                 <span
                   className={cn(
-                    "h-px w-full bg-[var(--ink)] transition-transform duration-300",
+                    "h-px w-full bg-(--ink) transition-transform duration-300",
                     open && "translate-y-[5.5px] rotate-45",
                   )}
                 />
                 <span
                   className={cn(
-                    "h-px w-full bg-[var(--ink)] transition-transform duration-300",
-                    open && "-translate-y-[5.5px] -rotate-45",
+                    "h-px w-full bg-(--ink) transition-transform duration-300",
+                    open && "translate-y-[-5.5px] -rotate-45",
                   )}
                 />
               </span>
@@ -148,7 +151,7 @@ export default function Navbar({ societies }: { societies: NavSociety[] }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: EASE }}
-            className="glass-panel fixed inset-0 z-[90] flex flex-col"
+            className="glass-panel fixed inset-0 z-90 flex flex-col"
           >
             <div className="grid-texture absolute inset-0 opacity-60" />
             <div className="relative flex flex-1 items-center pt-16">
@@ -160,16 +163,16 @@ export default function Navbar({ societies }: { societies: NavSociety[] }) {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: EASE, delay: 0.15 }}
-              className="relative border-t border-[var(--line)] px-6 py-8 sm:px-20"
+              className="relative border-t border-(--line) px-6 py-8 sm:px-20"
             >
               <p className="kicker">Societies</p>
               <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
-                {societies.slice(0, 8).map((s) => (
+                {chapters.map((s) => (
                   <Link
                     key={s.slug}
                     href={`/societies/${s.slug}`}
                     onClick={() => setOpen(false)}
-                    className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
+                    className="text-sm text-muted-foreground transition-colors hover:text-(--accent)"
                   >
                     {s.name}
                   </Link>
