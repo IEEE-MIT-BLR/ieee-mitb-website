@@ -96,17 +96,6 @@ export default function Footer() {
           <span>
             © {year} {siteConfig.name}
           </span>
-          <span>
-            Built by{" "}
-            <a
-              href={siteConfig.credit.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-(--muted) transition-colors hover:text-(--ink)"
-            >
-              {siteConfig.credit.name}
-            </a>
-          </span>
         </div>
       </div>
     </footer>
