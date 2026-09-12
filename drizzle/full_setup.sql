@@ -308,12 +308,11 @@ WHERE s.slug = 'computational-intelligence'
   AND NOT EXISTS (SELECT 1 FROM society_members sm WHERE sm.society_id = s.id);
 
 -- ════════════════════════════  FIRST ADMIN  ════════════════════════════════
--- 1) Create your admin user: Supabase Dashboard → Authentication → Add user
---    (or sign up at /admin/login once the app runs). A profile row is created
---    automatically by the trigger above.
--- 2) Then promote it (replace the email):
---
--- UPDATE public.profiles SET role = 'admin' WHERE email = 'you@example.com';
+-- Admin rights come from the `app_admins` allowlist seeded at the end of this
+-- script — NOT from editing `profiles.role`, which the prevent_role_escalation
+-- trigger blocks. To grant access: add the address to app_admins, then create
+-- the user in Supabase Dashboard → Authentication → Add user (tick Auto
+-- Confirm). The signup trigger reads the allowlist and assigns the role.
 
 -- ════════════════════════════════════════════════════════════════════════
 -- WRITE LOCKDOWN — the only writer is the trusted server (service role /
@@ -397,6 +396,10 @@ DROP TRIGGER IF EXISTS app_admins_sync_del ON public.app_admins;
 CREATE TRIGGER app_admins_sync_del AFTER DELETE ON public.app_admins
   FOR EACH ROW EXECUTE FUNCTION public.sync_admin_from_allowlist();
 
--- Add your master admin email(s) here (then create the auth user in the
--- dashboard, or they sign in once signups are disabled):
--- INSERT INTO public.app_admins (email, note) VALUES ('you@example.com', 'master');
+-- The branch's technical account — the single mailbox that owns the Supabase
+-- project, Vercel and the domain, and the only address granted dashboard
+-- write access by default. Add or remove rows here to grant or revoke:
+-- a removed address drops to a read-only viewer immediately.
+INSERT INTO public.app_admins (email, note)
+VALUES ('ieee.mitblr.admin@gmail.com', 'branch technical admin')
+ON CONFLICT (email) DO NOTHING;

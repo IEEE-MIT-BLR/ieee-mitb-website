@@ -150,6 +150,9 @@ Use `npm run db:migrate` + `npm run db:seed` instead when you are applying
 > Editing `profiles.role` directly is not the supported path — a
 > `prevent_role_escalation` trigger guards that column.
 
+The branch's technical account is seeded by `full_setup.sql` and `db:seed`,
+so a fresh database already grants it. To add anyone else:
+
 1. Add the email to the allowlist (Supabase → SQL Editor):
 
    ```sql
@@ -196,9 +199,9 @@ so a static host (GitHub Pages, Netlify's static mode) will **not** work.
 1. Set up the database on the production Supabase project — see **3b** above.
 2. Import the repo in Vercel and set every variable from `.env.example` in
    Project Settings → Environment Variables.
-3. Grant admin access to at least one real person — see **4** above. A fresh
-   `full_setup.sql` run leaves the allowlist **empty**, so nobody can sign in to
-   the dashboard until you add a row.
+3. Create the auth user for the seeded admin address — see **4** above. The
+   allowlist grants the role, but the account itself must still be created in
+   Supabase → Authentication → Add user before anyone can sign in.
 4. Supabase → Authentication → **URL Configuration**: set the Site URL to the
    production origin and add `https://<your-domain>/auth/callback` to the
    Redirect URLs, or `app/auth/callback/route.ts` will reject logins.
@@ -270,9 +273,13 @@ needs a live database — run it locally before releasing.
 - **Never expose the service-role key.** It bypasses RLS entirely, so it must
   only ever be set as `SUPABASE_SERVICE_ROLE_KEY` — never in a `NEXT_PUBLIC_*`
   variable, which Next.js inlines into the browser bundle.
-- **No personal email addresses live in this repo.** The only address in the
-  source is the branch's official contact mailbox in `lib/site-config.ts`; the
-  `app_admins` allowlist ships empty so no account is granted access implicitly.
+- **No personal email addresses live in this repo.** The only two addresses in
+  the source are the branch's own: the public contact mailbox in
+  `lib/site-config.ts`, and the technical account seeded into the `app_admins`
+  allowlist. Both are role accounts that survive a change of committee. An
+  address in the allowlist grants dashboard access but is not a credential on
+  its own — the account still needs a password, so protect that account with
+  2FA.
   When taking over an existing database, audit who currently holds access and
   remove anything unexpected:
 

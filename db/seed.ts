@@ -360,20 +360,33 @@ async function etlFromLegacy() {
   }
 }
 
-/** Promote the configured admin email to the `admin` role, if it exists. */
+/** The branch's technical account — the single mailbox that owns the Supabase
+ *  project, Vercel and the domain. Override with SEED_ADMIN_EMAIL when working
+ *  against a database that should grant someone else instead. */
+const DEFAULT_ADMIN_EMAIL = "ieee.mitblr.admin@gmail.com";
+
+/**
+ * Grant dashboard access by adding the address to the `app_admins` allowlist.
+ *
+ * The allowlist is the single source of truth: a trigger promotes a matching
+ * profile to `admin` and demotes it when the row is removed. Writing
+ * `profiles.role` directly is NOT equivalent — the prevent_role_escalation
+ * trigger guards that column, and the next allowlist sync would undo it.
+ *
+ * Runs before the user exists, which is fine: the signup trigger reads the
+ * allowlist when the account is created.
+ */
 async function promoteAdmin() {
-  const email = process.env.SEED_ADMIN_EMAIL;
+  const email = (process.env.SEED_ADMIN_EMAIL || DEFAULT_ADMIN_EMAIL)
+    .trim()
+    .toLowerCase();
   if (!email) return;
-  const updated = await db
-    .update(schema.profiles)
-    .set({ role: "admin" })
-    .where(eq(schema.profiles.email, email))
-    .returning({ id: schema.profiles.id });
-  if (updated.length) console.log(`✓ promoted ${email} to admin`);
-  else
-    console.log(
-      `• SEED_ADMIN_EMAIL set but no profile found for ${email} (sign up first, then re-run)`,
-    );
+  await db.execute(
+    dsql`INSERT INTO public.app_admins (email, note)
+         VALUES (${email}, 'seeded')
+         ON CONFLICT (email) DO NOTHING`,
+  );
+  console.log(`✓ admin allowlist: ${email}`);
 }
 
 // ── Representative content (events / articles / announcements) ───────────────
