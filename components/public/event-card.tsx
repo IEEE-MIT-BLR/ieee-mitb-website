@@ -41,7 +41,7 @@ export default function EventCard({
         className="card-surface focus-ring group flex cursor-pointer flex-col overflow-hidden"
       >
         {img && (
-          <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--line)]">
+          <div className="relative aspect-[16/10] overflow-hidden border-b border-(--line)">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={img}
@@ -55,28 +55,26 @@ export default function EventCard({
           <div className="flex items-center justify-between gap-3">
             <span className="kicker truncate">{society}</span>
             {isUpcoming && (
-              <span className="kicker shrink-0 text-[var(--accent)]">
-                Upcoming
-              </span>
+              <span className="kicker shrink-0 text-(--accent)">Upcoming</span>
             )}
           </div>
 
-          <h3 className="mt-3 line-clamp-2 text-xl leading-snug text-[var(--ink)] transition-colors group-hover:text-[var(--accent)]">
+          <h3 className="mt-3 line-clamp-2 text-xl leading-snug text-(--ink) transition-colors group-hover:text-(--accent)">
             {event.title}
           </h3>
 
-          <p className="mt-2 font-mono text-xs text-[var(--muted)]">
+          <p className="mt-2 font-mono text-xs text-(--muted)">
             {formatDateTime(event.startAt)}
           </p>
 
           {event.venue && (
-            <p className="mt-1.5 flex items-center gap-1.5 text-sm text-[var(--muted)]">
+            <p className="mt-1.5 flex items-center gap-1.5 text-sm text-(--muted)">
               <MapPin size={13} strokeWidth={1.75} className="shrink-0" />
               {event.venue}
             </p>
           )}
 
-          <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-[var(--muted)]">
+          <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-(--muted)">
             {event.description}
           </p>
         </div>
@@ -89,7 +87,7 @@ export default function EventCard({
         >
           <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
           <div
-            className="relative z-10 max-h-[88vh] w-full max-w-2xl overflow-auto border border-[var(--line-strong)] bg-[var(--surface)] p-8 text-[var(--ink)]"
+            className="relative z-10 max-h-[88vh] w-full max-w-2xl overflow-auto border border-(--line-strong) bg-(--surface) p-8 text-(--ink)"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
@@ -98,7 +96,7 @@ export default function EventCard({
               <div className="flex-1">
                 <p className="kicker">{society}</p>
                 <h2 className="mt-3 text-2xl sm:text-3xl">{event.title}</h2>
-                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-[var(--muted)]">
+                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-(--muted)">
                   <span>{formatDateTime(event.startAt)}</span>
                   {event.venue && (
                     <span className="flex items-center gap-1.5">
@@ -111,14 +109,14 @@ export default function EventCard({
               <button
                 aria-label="Close"
                 onClick={() => setOpen(false)}
-                className="text-[var(--faint)] transition-colors hover:text-[var(--ink)]"
+                className="text-(--faint) transition-colors hover:text-(--ink)"
               >
                 <X size={22} strokeWidth={1.5} />
               </button>
             </div>
 
             {img && (
-              <div className="mt-6 aspect-[16/9] w-full overflow-hidden border border-[var(--line)]">
+              <div className="mt-6 aspect-[16/9] w-full overflow-hidden border border-(--line)">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={img}
@@ -128,7 +126,7 @@ export default function EventCard({
               </div>
             )}
 
-            <div className="mt-6 leading-relaxed whitespace-pre-line text-[var(--ink-2)]">
+            <div className="mt-6 leading-relaxed whitespace-pre-line text-(--ink-2)">
               {event.description}
             </div>
 

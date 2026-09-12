@@ -53,8 +53,8 @@ export default function AdminShell({
             className={cn(
               "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
               isActive(item.href, item.exact)
-                ? "bg-[var(--accent-soft)] text-[var(--accent)]"
-                : "text-[var(--muted)] hover:bg-[var(--surface)] hover:text-[var(--ink)]",
+                ? "bg-(--accent-soft) text-(--accent)"
+                : "text-(--muted) hover:bg-(--surface) hover:text-(--ink)",
             )}
           >
             <Icon size={18} />
@@ -66,11 +66,11 @@ export default function AdminShell({
   );
 
   return (
-    <div className="min-h-screen bg-[var(--canvas)] text-[var(--ink)]">
+    <div className="min-h-screen bg-(--canvas) text-(--ink)">
       {/* Mobile top bar */}
-      <div className="flex items-center justify-between border-b border-[var(--line)] p-4 md:hidden">
+      <div className="flex items-center justify-between border-b border-(--line) p-4 md:hidden">
         <Link href="/admin" className="font-display text-lg">
-          IEEE <span className="text-[var(--accent)]">Admin</span>
+          IEEE <span className="text-(--accent)">Admin</span>
         </Link>
         <button onClick={() => setOpen((o) => !o)} aria-label="Toggle menu">
           {open ? <X /> : <Menu />}
@@ -81,26 +81,21 @@ export default function AdminShell({
         {/* Sidebar */}
         <aside
           className={cn(
-            "fixed inset-y-0 left-0 z-40 w-64 transform border-r border-[var(--line)] bg-[var(--canvas-deep)] p-4 transition-transform md:static md:translate-x-0",
+            "fixed inset-y-0 left-0 z-40 w-64 transform border-r border-(--line) bg-(--canvas-deep) p-4 transition-transform md:static md:translate-x-0",
             open ? "translate-x-0" : "-translate-x-full md:translate-x-0",
           )}
         >
           <div className="mb-8 hidden md:block">
-            <Link
-              href="/admin"
-              className="font-display text-lg text-[var(--ink)]"
-            >
-              IEEE <span className="text-[var(--accent)]">×</span> Admin
+            <Link href="/admin" className="font-display text-lg text-(--ink)">
+              IEEE <span className="text-(--accent)">×</span> Admin
             </Link>
           </div>
           {nav}
-          <div className="mt-8 border-t border-[var(--line)] pt-4">
-            <p className="mb-2 truncate px-3 text-xs text-[var(--faint)]">
-              {email}
-            </p>
+          <div className="mt-8 border-t border-(--line) pt-4">
+            <p className="mb-2 truncate px-3 text-xs text-(--faint)">{email}</p>
             <Link
               href="/"
-              className="block rounded-lg px-3 py-2 text-sm text-[var(--muted)] hover:bg-[var(--surface)] hover:text-[var(--ink)]"
+              className="block rounded-lg px-3 py-2 text-sm text-(--muted) hover:bg-(--surface) hover:text-(--ink)"
             >
               View site ↗
             </Link>

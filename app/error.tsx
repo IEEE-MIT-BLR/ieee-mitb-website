@@ -23,7 +23,7 @@ export default function Error({
     <div className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
       <p className="kicker">Error</p>
       <h1 className="mt-4 text-3xl sm:text-4xl">Something went wrong</h1>
-      <p className="mt-3 max-w-md text-[var(--muted)]">
+      <p className="mt-3 max-w-md text-(--muted)">
         An unexpected error occurred. You can try again, or head back to the
         home page.
       </p>

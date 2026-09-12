@@ -124,7 +124,7 @@ export default function ImageHover({
       className="flex h-full w-full items-center justify-between gap-16 px-8 py-16 max-md:flex-col max-md:items-start max-md:justify-center max-md:gap-8 sm:px-16 lg:px-24"
     >
       <div className="flex-1">
-        <ul className="flex flex-col gap-5 font-display text-6xl leading-[1.05] text-[var(--muted)] max-md:gap-3 max-md:text-4xl [&>li:hover]:text-[var(--accent)] [&>li]:transition-colors [&>li]:duration-300">
+        <ul className="flex flex-col gap-5 font-display text-6xl leading-[1.05] text-(--muted) max-md:gap-3 max-md:text-4xl [&>li:hover]:text-(--accent) [&>li]:transition-colors [&>li]:duration-300">
           {items.map(({ title, href }) => (
             <li key={title} className="menu-link-item w-fit">
               <Link href={href} onClick={onNavigate} className="block">
@@ -136,7 +136,7 @@ export default function ImageHover({
       </div>
       <div
         ref={previewContainerRef}
-        className="relative aspect-[3/4] w-[19rem] shrink-0 overflow-hidden border border-[var(--line)] max-md:hidden"
+        className="relative aspect-[3/4] w-[19rem] shrink-0 overflow-hidden border border-(--line) max-md:hidden"
       >
         {/* Base layer — shown before any hover */}
         {/* eslint-disable-next-line @next/next/no-img-element */}

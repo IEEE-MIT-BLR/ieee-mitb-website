@@ -35,7 +35,7 @@ function initials(name: string): string {
 function MemberTile({ member }: { member: SocietyMember }) {
   return (
     <div className="group">
-      <div className="aspect-[4/5] w-full overflow-hidden border border-[var(--line)] bg-[var(--canvas-deep)]">
+      <div className="aspect-[4/5] w-full overflow-hidden border border-(--line) bg-(--canvas-deep)">
         {member.photoUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -44,16 +44,14 @@ function MemberTile({ member }: { member: SocietyMember }) {
             className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center font-display text-3xl text-[var(--faint)]">
+          <div className="flex h-full w-full items-center justify-center font-display text-3xl text-(--faint)">
             {initials(member.name)}
           </div>
         )}
       </div>
       <h4 className="mt-3 text-base leading-tight">{member.name}</h4>
       {member.roleTitle && (
-        <p className="font-mono text-xs text-[var(--muted)]">
-          {member.roleTitle}
-        </p>
+        <p className="font-mono text-xs text-(--muted)">{member.roleTitle}</p>
       )}
       {(member.email || member.linkedin) && (
         <div className="mt-1.5 flex gap-3 text-xs">
@@ -88,7 +86,7 @@ export default async function SocietyPage({ params }: { params: Params }) {
   return (
     <main>
       {/* Hero */}
-      <section className="border-b border-[var(--line)] pt-36 pb-16">
+      <section className="border-b border-(--line) pt-36 pb-16">
         <div className="mx-auto max-w-6xl px-6">
           <span className="eyebrow">
             {society.type === "affinity"
@@ -96,7 +94,7 @@ export default async function SocietyPage({ params }: { params: Params }) {
               : "Technical society"}
           </span>
           <div className="mt-6 flex flex-col gap-8 sm:flex-row sm:items-start">
-            <div className="flex h-24 w-24 shrink-0 items-center justify-center border border-[var(--line)] bg-[var(--surface)]">
+            <div className="flex h-24 w-24 shrink-0 items-center justify-center border border-(--line) bg-(--surface)">
               {society.logoUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -105,7 +103,7 @@ export default async function SocietyPage({ params }: { params: Params }) {
                   className="h-20 w-20 object-contain"
                 />
               ) : (
-                <span className="font-display text-2xl text-[var(--faint)]">
+                <span className="font-display text-2xl text-(--faint)">
                   {initials(society.name)}
                 </span>
               )}
@@ -115,7 +113,7 @@ export default async function SocietyPage({ params }: { params: Params }) {
                 {society.name}
               </h1>
               {society.tagline && (
-                <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
+                <p className="mt-4 max-w-2xl text-lg leading-relaxed text-(--muted)">
                   {society.tagline}
                 </p>
               )}
@@ -145,7 +143,7 @@ export default async function SocietyPage({ params }: { params: Params }) {
                 About the {society.type === "affinity" ? "group" : "society"}
               </span>
             </div>
-            <p className="max-w-2xl text-lg leading-relaxed whitespace-pre-line text-[var(--ink-2)] md:col-span-8">
+            <p className="max-w-2xl text-lg leading-relaxed whitespace-pre-line text-(--ink-2) md:col-span-8">
               {society.about || "More details coming soon."}
             </p>
           </div>
@@ -153,14 +151,14 @@ export default async function SocietyPage({ params }: { params: Params }) {
       </section>
 
       {/* Members */}
-      <section className="border-t border-[var(--line)] py-20 md:py-28">
+      <section className="border-t border-(--line) py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-baseline justify-between border-b border-[var(--line)] pb-4">
+          <div className="flex items-baseline justify-between border-b border-(--line) pb-4">
             <h3 className="text-2xl sm:text-3xl">Core members</h3>
             <span className="kicker">{students.length} people</span>
           </div>
           {students.length === 0 ? (
-            <p className="mt-8 text-[var(--muted)]">No members added yet.</p>
+            <p className="mt-8 text-(--muted)">No members added yet.</p>
           ) : (
             <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4">
               {students.map((s) => (
@@ -173,17 +171,17 @@ export default async function SocietyPage({ params }: { params: Params }) {
 
       {/* Faculty */}
       {faculty.length > 0 && (
-        <section className="border-t border-[var(--line)] bg-[var(--canvas-deep)] py-20">
+        <section className="border-t border-(--line) bg-(--canvas-deep) py-20">
           <div className="mx-auto max-w-6xl px-6">
-            <h3 className="border-b border-[var(--line)] pb-4 text-2xl sm:text-3xl">
+            <h3 className="border-b border-(--line) pb-4 text-2xl sm:text-3xl">
               Faculty advisors
             </h3>
             <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 md:grid-cols-3">
               {faculty.map((f) => (
-                <div key={f.id} className="border-t border-[var(--line)] pt-5">
+                <div key={f.id} className="border-t border-(--line) pt-5">
                   <h4 className="text-lg">{f.name}</h4>
                   {f.roleTitle && (
-                    <p className="font-mono text-xs text-[var(--muted)]">
+                    <p className="font-mono text-xs text-(--muted)">
                       {f.roleTitle}
                     </p>
                   )}
@@ -213,7 +211,7 @@ export default async function SocietyPage({ params }: { params: Params }) {
 
       {/* Contact */}
       {(society.email || society.instagram || society.linkedin) && (
-        <section className="border-t border-[var(--line)] py-20">
+        <section className="border-t border-(--line) py-20">
           <div className="mx-auto max-w-6xl px-6">
             <div className="grid gap-8 md:grid-cols-12">
               <div className="md:col-span-4">
@@ -221,7 +219,7 @@ export default async function SocietyPage({ params }: { params: Params }) {
               </div>
               <dl className="space-y-4 md:col-span-8">
                 {society.email && (
-                  <div className="flex flex-col gap-1 border-b border-[var(--line)] pb-4 sm:flex-row sm:justify-between">
+                  <div className="flex flex-col gap-1 border-b border-(--line) pb-4 sm:flex-row sm:justify-between">
                     <dt className="kicker">Email</dt>
                     <dd>
                       <a href={`mailto:${society.email}`} className="link">
@@ -231,7 +229,7 @@ export default async function SocietyPage({ params }: { params: Params }) {
                   </div>
                 )}
                 {society.instagram && (
-                  <div className="flex flex-col gap-1 border-b border-[var(--line)] pb-4 sm:flex-row sm:justify-between">
+                  <div className="flex flex-col gap-1 border-b border-(--line) pb-4 sm:flex-row sm:justify-between">
                     <dt className="kicker">Instagram</dt>
                     <dd>
                       <a
@@ -246,7 +244,7 @@ export default async function SocietyPage({ params }: { params: Params }) {
                   </div>
                 )}
                 {society.linkedin && (
-                  <div className="flex flex-col gap-1 border-b border-[var(--line)] pb-4 sm:flex-row sm:justify-between">
+                  <div className="flex flex-col gap-1 border-b border-(--line) pb-4 sm:flex-row sm:justify-between">
                     <dt className="kicker">LinkedIn</dt>
                     <dd>
                       <a

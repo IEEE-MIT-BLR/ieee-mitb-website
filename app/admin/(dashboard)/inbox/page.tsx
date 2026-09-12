@@ -16,7 +16,7 @@ export default async function AdminInboxPage() {
     <div>
       <PageHeader title="Inbox" />
 
-      <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">
+      <h2 className="mb-4 text-lg font-semibold text-(--ink)">
         Contact messages
       </h2>
       <AdminTable
@@ -25,18 +25,16 @@ export default async function AdminInboxPage() {
         empty="No messages yet."
       >
         {messages.map((m) => (
-          <tr key={m.id} className="hover:bg-[var(--surface)]">
+          <tr key={m.id} className="hover:bg-(--surface)">
             <td className="px-4 py-3">
-              <div className="font-medium text-[var(--ink)]">{m.name}</div>
-              <div className="text-[var(--muted)]">{m.email}</div>
+              <div className="font-medium text-(--ink)">{m.name}</div>
+              <div className="text-(--muted)">{m.email}</div>
             </td>
-            <td className="px-4 py-3 text-[var(--muted)]">
-              {m.subject ?? "—"}
-            </td>
+            <td className="px-4 py-3 text-(--muted)">{m.subject ?? "—"}</td>
             <td className="px-4 py-3">
               <StatusBadge status={m.status} />
             </td>
-            <td className="px-4 py-3 text-[var(--muted)]">
+            <td className="px-4 py-3 text-(--muted)">
               {formatDate(m.createdAt)}
             </td>
             <td className="px-4 py-3 text-right whitespace-nowrap">
@@ -45,7 +43,7 @@ export default async function AdminInboxPage() {
                 <input type="hidden" name="status" value="read" />
                 <button
                   type="submit"
-                  className="rounded-md px-2 py-1 text-sm font-medium text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+                  className="rounded-md px-2 py-1 text-sm font-medium text-(--accent) hover:bg-(--accent-soft)"
                 >
                   Mark read
                 </button>
@@ -55,7 +53,7 @@ export default async function AdminInboxPage() {
                 <input type="hidden" name="status" value="archived" />
                 <button
                   type="submit"
-                  className="rounded-md px-2 py-1 text-sm font-medium text-[var(--ink-2)] hover:bg-[var(--surface-2)]"
+                  className="rounded-md px-2 py-1 text-sm font-medium text-(--ink-2) hover:bg-(--surface-2)"
                 >
                   Archive
                 </button>
@@ -65,7 +63,7 @@ export default async function AdminInboxPage() {
         ))}
       </AdminTable>
 
-      <h2 className="mt-10 mb-4 text-lg font-semibold text-[var(--ink)]">
+      <h2 className="mt-10 mb-4 text-lg font-semibold text-(--ink)">
         Newsletter subscribers
       </h2>
       <AdminTable
@@ -74,14 +72,12 @@ export default async function AdminInboxPage() {
         empty="No subscribers yet."
       >
         {subscribers.map((s) => (
-          <tr key={s.id} className="hover:bg-[var(--surface)]">
-            <td className="px-4 py-3 font-medium text-[var(--ink)]">
-              {s.email}
-            </td>
-            <td className="px-4 py-3 text-[var(--muted)]">
+          <tr key={s.id} className="hover:bg-(--surface)">
+            <td className="px-4 py-3 font-medium text-(--ink)">{s.email}</td>
+            <td className="px-4 py-3 text-(--muted)">
               {s.isConfirmed ? "Yes" : "No"}
             </td>
-            <td className="px-4 py-3 text-[var(--muted)]">
+            <td className="px-4 py-3 text-(--muted)">
               {formatDate(s.createdAt)}
             </td>
           </tr>

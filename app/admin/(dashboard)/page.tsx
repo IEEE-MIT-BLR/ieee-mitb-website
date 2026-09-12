@@ -29,39 +29,35 @@ export default async function AdminDashboardPage() {
           <Link
             key={c.label}
             href={c.href}
-            className="rounded-[4px] border border-[var(--line)] bg-[var(--surface)] p-6 transition-colors hover:border-[var(--accent)]/50 hover:bg-[var(--surface-2)]"
+            className="rounded-sm border border-(--line) bg-card p-6 transition-colors hover:border-(--accent)/50 hover:bg-secondary"
           >
             <p className="kicker">{c.label}</p>
-            <p className="mt-3 font-display text-4xl text-[var(--ink)]">
-              {c.value}
-            </p>
+            <p className="mt-3 font-display text-4xl text-(--ink)">{c.value}</p>
             {c.sub && (
-              <p className="mt-1 font-mono text-xs text-[var(--faint)]">
-                {c.sub}
-              </p>
+              <p className="mt-1 font-mono text-xs text-(--faint)">{c.sub}</p>
             )}
           </Link>
         ))}
       </div>
 
       <div className="mt-10">
-        <h2 className="mb-4 text-xl text-[var(--ink)]">Quick actions</h2>
+        <h2 className="mb-4 text-xl text-(--ink)">Quick actions</h2>
         <div className="flex flex-wrap gap-3">
           <Link
             href="/admin/events/new"
-            className="rounded-[3px] bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] hover:bg-[var(--accent-bright)]"
+            className="rounded-[3px] bg-(--accent) px-4 py-2 text-sm font-semibold text-(--on-accent) hover:bg-(--accent-bright)"
           >
             + New event
           </Link>
           <Link
             href="/admin/articles/new"
-            className="rounded-[3px] border border-[var(--line-strong)] px-4 py-2 text-sm font-semibold text-[var(--ink)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="rounded-[3px] border border-(--line-strong) px-4 py-2 text-sm font-semibold text-(--ink) hover:border-(--accent) hover:text-(--accent)"
           >
             + New article
           </Link>
           <Link
             href="/admin/announcements/new"
-            className="rounded-[3px] border border-[var(--line-strong)] px-4 py-2 text-sm font-semibold text-[var(--ink)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="rounded-[3px] border border-(--line-strong) px-4 py-2 text-sm font-semibold text-(--ink) hover:border-(--accent) hover:text-(--accent)"
           >
             + New announcement
           </Link>

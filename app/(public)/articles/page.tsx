@@ -31,13 +31,13 @@ export default async function ArticlesPage({
 
   return (
     <div className="min-h-screen">
-      <section className="border-b border-[var(--line)] pt-36 pb-16">
+      <section className="border-b border-(--line) pt-36 pb-16">
         <div className="mx-auto max-w-6xl px-6">
           <span className="eyebrow">Writing & research</span>
           <h1 className="mt-6 max-w-3xl text-5xl leading-[1.02] md:text-7xl">
             Articles
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-(--muted)">
             Research, publications, and insights shared by IEEE MIT Bengaluru
             societies and members.
           </p>
@@ -49,18 +49,16 @@ export default async function ArticlesPage({
       </div>
 
       <div className="mx-auto max-w-6xl px-6 pb-24">
-        <p className="mt-8 mb-10 font-mono text-xs tracking-wide text-[var(--faint)]">
+        <p className="mt-8 mb-10 font-mono text-xs tracking-wide text-(--faint)">
           {result.total > 0
             ? `${result.total} article${result.total === 1 ? "" : "s"} found`
             : "No articles published yet."}
         </p>
 
         {result.rows.length === 0 ? (
-          <div className="border-y border-[var(--line)] py-20 text-center">
+          <div className="border-y border-(--line) py-20 text-center">
             <h3 className="text-xl">No articles found</h3>
-            <p className="mt-2 text-[var(--muted)]">
-              Try adjusting your filters.
-            </p>
+            <p className="mt-2 text-(--muted)">Try adjusting your filters.</p>
           </div>
         ) : (
           <>

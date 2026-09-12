@@ -41,7 +41,7 @@ export default function ArticleCard({ article }: { article: ArticleListItem }) {
         className="card-surface focus-ring group flex cursor-pointer flex-col overflow-hidden"
       >
         {img && (
-          <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--line)]">
+          <div className="relative aspect-[16/10] overflow-hidden border-b border-(--line)">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={img}
@@ -55,15 +55,15 @@ export default function ArticleCard({ article }: { article: ArticleListItem }) {
           {article.societyName && (
             <span className="kicker truncate">{article.societyName}</span>
           )}
-          <h3 className="mt-3 line-clamp-2 text-xl leading-snug text-[var(--ink)] transition-colors group-hover:text-[var(--accent)]">
+          <h3 className="mt-3 line-clamp-2 text-xl leading-snug text-(--ink) transition-colors group-hover:text-(--accent)">
             {article.title}
           </h3>
           {article.excerpt && (
-            <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-[var(--muted)]">
+            <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-(--muted)">
               {article.excerpt}
             </p>
           )}
-          <div className="mt-4 flex flex-wrap items-center gap-x-3 font-mono text-xs text-[var(--faint)]">
+          <div className="mt-4 flex flex-wrap items-center gap-x-3 font-mono text-xs text-(--faint)">
             {byline && <span>{byline}</span>}
             {article.publicationDate && (
               <span>{formatDate(article.publicationDate)}</span>
@@ -79,7 +79,7 @@ export default function ArticleCard({ article }: { article: ArticleListItem }) {
         >
           <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
           <div
-            className="relative z-10 max-h-[88vh] w-full max-w-2xl overflow-auto border border-[var(--line-strong)] bg-[var(--surface)] p-8 text-[var(--ink)]"
+            className="relative z-10 max-h-[88vh] w-full max-w-2xl overflow-auto border border-(--line-strong) bg-(--surface) p-8 text-(--ink)"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
@@ -94,13 +94,13 @@ export default function ArticleCard({ article }: { article: ArticleListItem }) {
               <button
                 aria-label="Close"
                 onClick={() => setOpen(false)}
-                className="text-[var(--faint)] transition-colors hover:text-[var(--ink)]"
+                className="text-(--faint) transition-colors hover:text-(--ink)"
               >
                 <X size={22} strokeWidth={1.5} />
               </button>
             </div>
             {img && (
-              <div className="mt-6 aspect-[16/9] w-full overflow-hidden border border-[var(--line)]">
+              <div className="mt-6 aspect-[16/9] w-full overflow-hidden border border-(--line)">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={img}
@@ -109,13 +109,11 @@ export default function ArticleCard({ article }: { article: ArticleListItem }) {
                 />
               </div>
             )}
-            <div className="mt-6 leading-relaxed whitespace-pre-line text-[var(--ink-2)]">
+            <div className="mt-6 leading-relaxed whitespace-pre-line text-(--ink-2)">
               {article.excerpt}
             </div>
             {byline && (
-              <p className="mt-4 font-mono text-xs text-[var(--faint)]">
-                {byline}
-              </p>
+              <p className="mt-4 font-mono text-xs text-(--faint)">{byline}</p>
             )}
             {ext && (
               <div className="mt-8">

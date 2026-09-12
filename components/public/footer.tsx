@@ -12,15 +12,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="mt-24 border-t border-[var(--line)] bg-[var(--canvas-deep)]">
+    <footer className="mt-24 border-t border-(--line) bg-(--canvas-deep)">
       <div className="mx-auto max-w-6xl px-6">
         {/* Sign-off line */}
-        <div className="border-b border-[var(--line)] py-16">
+        <div className="border-b border-(--line) py-16">
           <p className="eyebrow">IEEE Student Branch · MIT Bengaluru</p>
           <h2 className="mt-6 max-w-3xl text-4xl leading-[1.05] sm:text-5xl">
             Advancing technology
             <br />
-            for <span className="italic text-[var(--accent)]">humanity</span>.
+            for <span className="italic text-(--accent)">humanity</span>.
           </h2>
           <Link href="/membership" className="btn-primary mt-8">
             Become a member
@@ -37,7 +37,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+                    className="text-(--muted) transition-colors hover:text-(--ink)"
                   >
                     {link.name}
                   </Link>
@@ -46,7 +46,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/societies"
-                  className="text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+                  className="text-(--muted) transition-colors hover:text-(--ink)"
                 >
                   Societies
                 </Link>
@@ -63,7 +63,7 @@ export default function Footer() {
                     href={s.href}
                     target={s.href.startsWith("mailto:") ? undefined : "_blank"}
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-1 text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+                    className="group inline-flex items-center gap-1 text-(--muted) transition-colors hover:text-(--ink)"
                   >
                     {s.name}
                     <ArrowUpRight
@@ -79,7 +79,7 @@ export default function Footer() {
 
           <div className="col-span-2 md:col-span-2">
             <p className="kicker">Find us</p>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-[var(--muted)]">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-(--muted)">
               {siteConfig.address}
             </p>
             <a
@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
 
         {/* Baseline */}
-        <div className="flex flex-col gap-3 border-t border-[var(--line)] py-7 font-mono text-xs tracking-wide text-[var(--faint)] sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 border-t border-(--line) py-7 font-mono text-xs tracking-wide text-(--faint) sm:flex-row sm:items-center sm:justify-between">
           <span>
             © {year} {siteConfig.name}
           </span>
@@ -102,7 +102,7 @@ export default function Footer() {
               href={siteConfig.credit.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+              className="text-(--muted) transition-colors hover:text-(--ink)"
             >
               {siteConfig.credit.name}
             </a>

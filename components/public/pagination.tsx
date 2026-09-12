@@ -39,22 +39,20 @@ export default function Pagination({
         {currentPage > 1 ? (
           <Link
             href={hrefFor(currentPage - 1)}
-            className={`${baseBtn} text-[var(--muted)] hover:bg-[var(--canvas-deep)] hover:text-[var(--ink)]`}
+            className={`${baseBtn} text-muted-foreground hover:bg-(--canvas-deep) hover:text-(--ink)`}
             aria-label="Previous page"
           >
             ‹
           </Link>
         ) : (
-          <span
-            className={`${baseBtn} cursor-not-allowed text-[var(--disabled)]`}
-          >
+          <span className={`${baseBtn} cursor-not-allowed text-(--disabled)`}>
             ‹
           </span>
         )}
 
         {pageNumbers(currentPage, totalPages).map((p, i) =>
           p === "…" ? (
-            <span key={`e${i}`} className="px-2 text-[var(--faint)]">
+            <span key={`e${i}`} className="px-2 text-(--faint)">
               …
             </span>
           ) : (
@@ -64,8 +62,8 @@ export default function Pagination({
               aria-current={p === currentPage ? "page" : undefined}
               className={
                 p === currentPage
-                  ? `${baseBtn} bg-[var(--ink)] text-[var(--canvas)]`
-                  : `${baseBtn} text-[var(--muted)] hover:bg-[var(--canvas-deep)] hover:text-[var(--ink)]`
+                  ? `${baseBtn} bg-(--ink) text-background`
+                  : `${baseBtn} text-muted-foreground hover:bg-(--canvas-deep) hover:text-(--ink)`
               }
             >
               {p}
@@ -76,15 +74,13 @@ export default function Pagination({
         {currentPage < totalPages ? (
           <Link
             href={hrefFor(currentPage + 1)}
-            className={`${baseBtn} text-[var(--muted)] hover:bg-[var(--canvas-deep)] hover:text-[var(--ink)]`}
+            className={`${baseBtn} text-muted-foreground hover:bg-(--canvas-deep) hover:text-(--ink)`}
             aria-label="Next page"
           >
             ›
           </Link>
         ) : (
-          <span
-            className={`${baseBtn} cursor-not-allowed text-[var(--disabled)]`}
-          >
+          <span className={`${baseBtn} cursor-not-allowed text-(--disabled)`}>
             ›
           </span>
         )}

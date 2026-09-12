@@ -19,7 +19,7 @@ const MONTHS = [
 ];
 
 const selectClass =
-  "w-full rounded-[3px] border border-[var(--line-strong)] bg-[var(--canvas)] px-3.5 py-2.5 text-sm text-[var(--ink)] transition-colors focus:border-[var(--ink)] focus:outline-none";
+  "w-full rounded-[3px] border border-(--line-strong) bg-(--canvas) px-3.5 py-2.5 text-sm text-(--ink) transition-colors focus:border-(--ink) focus:outline-none";
 
 /**
  * URL-driven filter bar for the Events and Articles pages. Each change rewrites
@@ -71,7 +71,7 @@ export default function ContentFilters({
           placeholder="Search by title, description, author…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full rounded-[3px] border border-[var(--line-strong)] bg-[var(--canvas)] px-3.5 py-2.5 text-sm text-[var(--ink)] transition-colors placeholder:text-[var(--faint)] focus:border-[var(--ink)] focus:outline-none"
+          className="w-full rounded-[3px] border border-(--line-strong) bg-(--canvas) px-3.5 py-2.5 text-sm text-(--ink) transition-colors placeholder:text-(--faint) focus:border-(--ink) focus:outline-none"
         />
       </div>
 
@@ -145,7 +145,7 @@ export default function ContentFilters({
             setSearch("");
             router.replace(pathname);
           }}
-          className="rounded-[3px] border border-[var(--line-strong)] bg-transparent px-3.5 py-2.5 text-sm font-medium text-[var(--ink)] transition-colors hover:border-[var(--ink)] hover:bg-[var(--canvas)]"
+          className="rounded-[3px] border border-(--line-strong) bg-transparent px-3.5 py-2.5 text-sm font-medium text-(--ink) transition-colors hover:border-(--ink) hover:bg-(--canvas)"
         >
           Clear all
         </button>

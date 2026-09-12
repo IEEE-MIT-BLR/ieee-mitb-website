@@ -41,7 +41,7 @@ function GroupHeading({
   children: React.ReactNode;
 }) {
   return (
-    <div className="mb-8 flex items-baseline justify-between border-b border-[var(--line)] pb-4">
+    <div className="mb-8 flex items-baseline justify-between border-b border-(--line) pb-4">
       <h3 className="text-2xl sm:text-3xl">{children}</h3>
       <span className="kicker">{kicker}</span>
     </div>
@@ -79,13 +79,13 @@ export default async function EventsPage({
 
   return (
     <div className="min-h-screen">
-      <section className="border-b border-[var(--line)] pt-36 pb-16">
+      <section className="border-b border-(--line) pt-36 pb-16">
         <div className="mx-auto max-w-6xl px-6">
           <span className="eyebrow">Mark your calendar</span>
           <h1 className="mt-6 max-w-3xl text-5xl leading-[1.02] md:text-7xl">
             Events
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-(--muted)">
             Cutting-edge technology events, workshops, and conferences hosted by
             IEEE MIT Bengaluru societies.
           </p>
@@ -97,16 +97,16 @@ export default async function EventsPage({
       </div>
 
       <div className="mx-auto max-w-6xl px-6 pb-24">
-        <p className="mt-8 mb-10 font-mono text-xs tracking-wide text-[var(--faint)]">
+        <p className="mt-8 mb-10 font-mono text-xs tracking-wide text-(--faint)">
           {total > 0
             ? `${total} event${total === 1 ? "" : "s"} found`
             : "Nothing scheduled yet — check back soon."}
         </p>
 
         {empty ? (
-          <div className="border-y border-[var(--line)] py-20 text-center">
+          <div className="border-y border-(--line) py-20 text-center">
             <h3 className="text-xl">No events found</h3>
-            <p className="mt-2 text-[var(--muted)]">
+            <p className="mt-2 text-(--muted)">
               Try adjusting your search criteria or filters.
             </p>
           </div>

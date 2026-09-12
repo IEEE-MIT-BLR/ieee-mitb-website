@@ -33,10 +33,10 @@ export default function Marquee({
           >
             {copy.items.map((item, i) => (
               <Fragment key={i}>
-                <span className="px-8 text-2xl text-[var(--ink)] sm:px-12 sm:text-3xl">
+                <span className="px-8 text-2xl text-(--ink) sm:px-12 sm:text-3xl">
                   {item}
                 </span>
-                <span className="text-[var(--accent)]">/</span>
+                <span className="text-(--accent)">/</span>
               </Fragment>
             ))}
           </div>

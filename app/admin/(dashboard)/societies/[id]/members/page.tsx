@@ -34,18 +34,14 @@ export default async function SocietyMembersPage({
         empty="No members yet. Add your first one."
       >
         {members.map((m) => (
-          <tr key={m.id} className="hover:bg-[var(--surface)]">
-            <td className="px-4 py-3 font-medium text-[var(--ink)]">
-              {m.name}
-            </td>
-            <td className="px-4 py-3 text-[var(--muted)]">{m.memberType}</td>
-            <td className="px-4 py-3 text-[var(--muted)]">
-              {m.roleTitle ?? "—"}
-            </td>
+          <tr key={m.id} className="hover:bg-(--surface)">
+            <td className="px-4 py-3 font-medium text-(--ink)">{m.name}</td>
+            <td className="px-4 py-3 text-(--muted)">{m.memberType}</td>
+            <td className="px-4 py-3 text-(--muted)">{m.roleTitle ?? "—"}</td>
             <td className="px-4 py-3 text-right whitespace-nowrap">
               <Link
                 href={`/admin/societies/${id}/members/${m.id}/edit`}
-                className="rounded-md px-2 py-1 text-sm font-medium text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+                className="rounded-md px-2 py-1 text-sm font-medium text-(--accent) hover:bg-(--accent-soft)"
               >
                 Edit
               </Link>

@@ -24,17 +24,15 @@ function SocietyRow({
     <li>
       <Link
         href={`/societies/${slug}`}
-        className="group grid grid-cols-[auto_1fr] items-start gap-5 border-b border-[var(--line)] py-7 transition-colors hover:bg-[var(--canvas-deep)] sm:grid-cols-[auto_1fr_auto] sm:gap-8"
+        className="group grid grid-cols-[auto_1fr] items-start gap-5 border-b border-(--line) py-7 transition-colors hover:bg-(--canvas-deep) sm:grid-cols-[auto_1fr_auto] sm:gap-8"
       >
-        <span className="pt-1.5 font-mono text-xs text-[var(--faint)]">
-          {index}
-        </span>
+        <span className="pt-1.5 font-mono text-xs text-(--faint)">{index}</span>
         <div className="min-w-0">
-          <h2 className="text-2xl text-[var(--ink)] transition-colors group-hover:text-[var(--accent)] sm:text-3xl">
+          <h2 className="text-2xl text-(--ink) transition-colors group-hover:text-(--accent) sm:text-3xl">
             {name}
           </h2>
           {about && (
-            <p className="mt-2 line-clamp-2 max-w-2xl text-sm leading-relaxed text-[var(--muted)]">
+            <p className="mt-2 line-clamp-2 max-w-2xl text-sm leading-relaxed text-(--muted)">
               {about}
             </p>
           )}
@@ -42,7 +40,7 @@ function SocietyRow({
         <ArrowUpRight
           size={20}
           strokeWidth={1.5}
-          className="col-start-2 row-start-1 justify-self-end text-[var(--faint)] transition-all group-hover:translate-x-1 group-hover:text-[var(--ink)] sm:col-start-3"
+          className="col-start-2 row-start-1 justify-self-end text-(--faint) transition-all group-hover:translate-x-1 group-hover:text-(--ink) sm:col-start-3"
         />
       </Link>
     </li>
@@ -56,13 +54,13 @@ export default async function SocietiesPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="border-b border-[var(--line)] pt-36 pb-16">
+      <section className="border-b border-(--line) pt-36 pb-16">
         <div className="mx-auto max-w-6xl px-6">
           <span className="eyebrow">Chapters & groups</span>
           <h1 className="mt-6 max-w-3xl text-5xl leading-[1.02] md:text-7xl">
             Societies
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-(--muted)">
             Each society offers a distinct path through modern engineering —
             learning, networking, and professional growth across the breadth of
             the field.
@@ -71,7 +69,7 @@ export default async function SocietiesPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <ul className="border-t border-[var(--line)]">
+        <ul className="border-t border-(--line)">
           {proper.map((soc, idx) => (
             <SocietyRow
               key={soc.id}
@@ -86,7 +84,7 @@ export default async function SocietiesPage() {
         {affinities.length > 0 && (
           <>
             <h2 className="mt-20 mb-2 text-2xl sm:text-3xl">Affinity groups</h2>
-            <ul className="border-t border-[var(--line)]">
+            <ul className="border-t border-(--line)">
               {affinities.map((soc) => (
                 <SocietyRow
                   key={soc.id}

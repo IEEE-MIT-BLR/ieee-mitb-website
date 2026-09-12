@@ -12,15 +12,15 @@ export function PageHeader({
   return (
     <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
       <div>
-        <h1 className="text-3xl text-[var(--ink)]">{title}</h1>
+        <h1 className="text-3xl text-(--ink)">{title}</h1>
         {description && (
-          <p className="mt-1 text-sm text-[var(--muted)]">{description}</p>
+          <p className="mt-1 text-sm text-(--muted)">{description}</p>
         )}
       </div>
       {action && (
         <Link
           href={action.href}
-          className="rounded-[3px] bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition-colors hover:bg-[var(--accent-bright)]"
+          className="rounded-[3px] bg-(--accent) px-4 py-2 text-sm font-semibold text-(--on-accent) transition-colors hover:bg-(--accent-bright)"
         >
           {action.label}
         </Link>
@@ -62,15 +62,15 @@ export function AdminTable({
 }) {
   if (isEmpty) {
     return (
-      <div className="rounded-[4px] border border-[var(--line)] bg-[var(--surface)] p-10 text-center text-[var(--muted)]">
+      <div className="rounded-[4px] border border-(--line) bg-(--surface) p-10 text-center text-(--muted)">
         {empty}
       </div>
     );
   }
   return (
-    <div className="overflow-x-auto rounded-[4px] border border-[var(--line)] bg-[var(--surface)]">
+    <div className="overflow-x-auto rounded-[4px] border border-(--line) bg-(--surface)">
       <table className="w-full text-left text-sm">
-        <thead className="border-b border-[var(--line)] text-xs text-[var(--faint)] uppercase">
+        <thead className="border-b border-(--line) text-xs text-(--faint) uppercase">
           <tr>
             {headers.map((h) => (
               <th key={h} className="px-4 py-3 font-medium">
@@ -79,7 +79,7 @@ export function AdminTable({
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-[var(--line)]">{children}</tbody>
+        <tbody className="divide-y divide-(--line)">{children}</tbody>
       </table>
     </div>
   );

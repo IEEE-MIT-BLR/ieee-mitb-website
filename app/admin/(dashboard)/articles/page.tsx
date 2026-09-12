@@ -29,14 +29,10 @@ export default async function AdminArticlesPage({
         empty="No articles yet. Create your first one."
       >
         {rows.map((a) => (
-          <tr key={a.id} className="hover:bg-[var(--surface)]">
-            <td className="px-4 py-3 font-medium text-[var(--ink)]">
-              {a.title}
-            </td>
-            <td className="px-4 py-3 text-[var(--muted)]">
-              {a.societyName ?? "—"}
-            </td>
-            <td className="px-4 py-3 text-[var(--muted)]">
+          <tr key={a.id} className="hover:bg-(--surface)">
+            <td className="px-4 py-3 font-medium text-(--ink)">{a.title}</td>
+            <td className="px-4 py-3 text-(--muted)">{a.societyName ?? "—"}</td>
+            <td className="px-4 py-3 text-(--muted)">
               {a.publicationDate ? formatDate(a.publicationDate) : "—"}
             </td>
             <td className="px-4 py-3">
@@ -45,7 +41,7 @@ export default async function AdminArticlesPage({
             <td className="px-4 py-3 text-right whitespace-nowrap">
               <Link
                 href={`/admin/articles/${a.id}/edit`}
-                className="rounded-md px-2 py-1 text-sm font-medium text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+                className="rounded-md px-2 py-1 text-sm font-medium text-(--accent) hover:bg-(--accent-soft)"
               >
                 Edit
               </Link>
