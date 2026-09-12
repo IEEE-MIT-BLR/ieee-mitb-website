@@ -10,6 +10,11 @@ export const siteConfig = {
     "The epicenter for all IEEE MIT Bengaluru events, societies, articles, and activities.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   address: "BSF Campus, Yelahanka Airforce Base, Bengaluru 560064",
+  /**
+   * The branch's official contact address — the single mailbox used for the
+   * public site, the Supabase account and admin access. Change it here and it
+   * updates the navbar and footer together.
+   */
   email: "ieee.mitblr@manipal.edu",
   logo: "/logo.png",
   favicon: "/ieee.svg",

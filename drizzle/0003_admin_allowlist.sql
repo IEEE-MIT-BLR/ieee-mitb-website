@@ -73,7 +73,10 @@ CREATE TRIGGER app_admins_sync_del
   AFTER DELETE ON public.app_admins
   FOR EACH ROW EXECUTE FUNCTION public.sync_admin_from_allowlist();
 
--- Seed the current admin so the allowlist is the single source of truth.
-INSERT INTO public.app_admins (email, note)
-VALUES ('adityathrowaway67@gmail.com', 'initial admin')
-ON CONFLICT (email) DO NOTHING;
+-- NOTE: no admin is seeded here on purpose. The allowlist starts EMPTY so that
+-- no address is hardcoded in the repo. Grant access explicitly after migrating:
+--
+--   INSERT INTO public.app_admins (email, note)
+--   VALUES ('admin@your-domain.org', 'who they are');
+--
+-- See "Grant admin access" in README.md.

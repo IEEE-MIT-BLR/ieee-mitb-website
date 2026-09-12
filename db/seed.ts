@@ -141,31 +141,26 @@ const CIS_STUDENTS = [
   {
     name: "Ameya Mhatre",
     roleTitle: "Chair",
-    email: "ameya.mitblr2024@learner.manipal.edu",
     linkedin: "https://www.linkedin.com/in/ameya-mhatre-553003307/",
   },
   {
     name: "Rishabh Surana",
     roleTitle: "Vice Chair",
-    email: "rishabh2.mitblr2024@learner.manipal.edu",
     linkedin: "https://www.linkedin.com/in/rishabh-surana-4a06b02b3",
   },
   {
     name: "Arunabhho Das",
     roleTitle: "General Secretary",
-    email: "arunabhho.mitblr2024@learner.manipal.edu",
     linkedin: "https://www.linkedin.com/in/arunabhho-das-70685b351",
   },
   {
     name: "Samraksha Nori",
     roleTitle: "Technical Webmaster",
-    email: "samraksha.mitblr@learner.manipal.edu",
     linkedin: "https://www.linkedin.com/in/samraksha-nori-76401a299",
   },
   {
     name: "Eshani Katiyar",
     roleTitle: "Treasurer",
-    email: "eshani.mitblr2024@learner.manipal.edu",
     linkedin: "https://www.linkedin.com/in/eshani-katiyar-2a7737322",
   },
 ];
@@ -173,7 +168,6 @@ const CIS_FACULTY = [
   {
     name: "Dr. Megha Arakeri",
     roleTitle: "Faculty Advisor",
-    email: "megha.arakeri@manipal.edu",
     linkedin: "https://www.linkedin.com/in/dr-megha-arakeri",
   },
 ];
@@ -243,7 +237,6 @@ async function seedCisMembers() {
       memberType: "student" as const,
       name: m.name,
       roleTitle: m.roleTitle,
-      email: m.email,
       linkedin: m.linkedin,
       displayOrder: i,
     })),
@@ -252,7 +245,6 @@ async function seedCisMembers() {
       memberType: "faculty" as const,
       name: m.name,
       roleTitle: m.roleTitle,
-      email: m.email,
       linkedin: m.linkedin,
       displayOrder: i,
     })),

@@ -291,17 +291,17 @@ FROM (VALUES
 WHERE NOT EXISTS (SELECT 1 FROM team_members);
 
 -- Computational Intelligence Society members (real data), linked by slug.
-INSERT INTO society_members (society_id, member_type, name, role_title, email, linkedin, display_order)
-SELECT s.id, v.member_type::member_type, v.name, v.role_title, v.email, v.linkedin, v.display_order
+INSERT INTO society_members (society_id, member_type, name, role_title, linkedin, display_order)
+SELECT s.id, v.member_type::member_type, v.name, v.role_title, v.linkedin, v.display_order
 FROM societies s
 JOIN (VALUES
-  ('student', 'Ameya Mhatre',   'Chair',               'ameya.mitblr2024@learner.manipal.edu',     'https://www.linkedin.com/in/ameya-mhatre-553003307/',   0),
-  ('student', 'Rishabh Surana', 'Vice Chair',          'rishabh2.mitblr2024@learner.manipal.edu',  'https://www.linkedin.com/in/rishabh-surana-4a06b02b3',  1),
-  ('student', 'Arunabhho Das',  'General Secretary',   'arunabhho.mitblr2024@learner.manipal.edu', 'https://www.linkedin.com/in/arunabhho-das-70685b351',   2),
-  ('student', 'Samraksha Nori', 'Technical Webmaster', 'samraksha.mitblr@learner.manipal.edu',     'https://www.linkedin.com/in/samraksha-nori-76401a299',  3),
-  ('student', 'Eshani Katiyar', 'Treasurer',           'eshani.mitblr2024@learner.manipal.edu',    'https://www.linkedin.com/in/eshani-katiyar-2a7737322',  4),
-  ('faculty', 'Dr. Megha Arakeri', 'Faculty Advisor',  'megha.arakeri@manipal.edu',                'https://www.linkedin.com/in/dr-megha-arakeri',          0)
-) AS v(member_type, name, role_title, email, linkedin, display_order) ON TRUE
+  ('student', 'Ameya Mhatre',   'Chair',               'https://www.linkedin.com/in/ameya-mhatre-553003307/',   0),
+  ('student', 'Rishabh Surana', 'Vice Chair',          'https://www.linkedin.com/in/rishabh-surana-4a06b02b3',  1),
+  ('student', 'Arunabhho Das',  'General Secretary',   'https://www.linkedin.com/in/arunabhho-das-70685b351',   2),
+  ('student', 'Samraksha Nori', 'Technical Webmaster', 'https://www.linkedin.com/in/samraksha-nori-76401a299',  3),
+  ('student', 'Eshani Katiyar', 'Treasurer',           'https://www.linkedin.com/in/eshani-katiyar-2a7737322',  4),
+  ('faculty', 'Dr. Megha Arakeri', 'Faculty Advisor',  'https://www.linkedin.com/in/dr-megha-arakeri',          0)
+) AS v(member_type, name, role_title, linkedin, display_order) ON TRUE
 WHERE s.slug = 'computational-intelligence'
   AND NOT EXISTS (SELECT 1 FROM society_members sm WHERE sm.society_id = s.id);
 
