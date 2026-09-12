@@ -77,9 +77,12 @@ const ContainerScroll = ({
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => setIsInView(entry?.isIntersecting ?? false),
-      // Activate only once the section fills the central band of the viewport,
-      // so the fixed overlay appears with the pinned grid — not before/after.
-      { rootMargin: "-20% 0px -20% 0px" },
+      // Collapse the root to a zero-height line at the top of the viewport, so
+      // this fires only while the section straddles that line — i.e. exactly
+      // while its sticky grid is pinned. A symmetric band ("-20% 0px -20% 0px")
+      // matched as soon as this tall section touched the middle of the screen,
+      // which revealed the fixed overlay on top of the *previous* section.
+      { rootMargin: "0px 0px -100% 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
