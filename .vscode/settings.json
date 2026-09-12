@@ -1,0 +1,25 @@
+{
+  // Tailwind CSS v4 is configured in CSS (`app/globals.css`), not a JS config
+  // file. VS Code's built-in CSS linter does not know v4 at-rules such as
+  // `@theme` and reports "Unknown at rule" — silence that and let the Tailwind
+  // extension handle validation instead.
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore",
+
+  // Treat CSS files as Tailwind so IntelliSense works inside `@theme` blocks.
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  // Class-name completion inside strings (clsx/cn/cva calls).
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
