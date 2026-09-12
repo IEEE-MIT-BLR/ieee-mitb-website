@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,7 +60,12 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Vercel Web Analytics — no-ops outside Vercel, so local dev and any
+            other host are unaffected. Page views only; no cookies, no PII. */}
+        <Analytics />
+      </body>
     </html>
   );
 }
