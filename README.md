@@ -104,8 +104,19 @@ Then set up the schema and data:
 
 ```bash
 npm run db:migrate   # applies drizzle/ migrations (schema + RLS + auth wiring)
-npm run db:seed      # societies, leadership, CIS members, sample events/articles
+npm run db:seed      # societies, leadership, CIS members
 ```
+
+To also load sample events, articles and announcements so every section and
+filter has something to show locally:
+
+```bash
+SEED_DEMO_CONTENT=1 npm run db:seed
+```
+
+That content is **fabricated** and is published as-is, so the seed refuses to
+insert it unless the database is on `localhost`. Real events and articles are
+entered through `/admin`.
 
 The migrations do **not** create the Storage bucket. Create it once:
 

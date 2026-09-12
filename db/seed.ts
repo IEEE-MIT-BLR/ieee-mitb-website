@@ -3,10 +3,14 @@
  *
  * Run with: `npm run db:seed` (after `npm run db:migrate`).
  *
- * Seeds the 10 societies/affinity groups, the current student-branch cabinet,
+ * Seeds the 11 societies/affinity groups, the current student-branch cabinet,
  * and the one society with real member data (Computational Intelligence).
- * Optionally ETLs events + articles from the legacy Supabase project when
+ * Optionally ETLs events + articles from a legacy Supabase project when
  * `LEGACY_SUPABASE_DB_URL` is set.
+ *
+ * Sample events/articles/announcements are NOT seeded by default. They are
+ * fabricated demo data; set `SEED_DEMO_CONTENT=1` to include them, which only
+ * works against a database on localhost.
  *
  * Re-running is safe: societies upsert on `slug`; member/team seeds are guarded
  * by existence checks so admin-entered data is never duplicated or wiped.
@@ -813,12 +817,42 @@ async function seedContent() {
   }
 }
 
+/**
+ * Hard stop against seeding demo content into a real deployment. A local
+ * Supabase stack is reachable on localhost/127.0.0.1; anything else is
+ * treated as production and refused.
+ */
+function assertLocalDatabase() {
+  const host = new URL(url!).hostname;
+  if (host !== "localhost" && host !== "127.0.0.1") {
+    throw new Error(
+      `Refusing to seed demo content into a non-local database (${host}). ` +
+        "The sample events and articles are fabricated and would appear on " +
+        "the public site as genuine. Add real content through /admin instead.",
+    );
+  }
+}
+
 async function main() {
   console.log("Seeding database…");
   await seedSocieties();
   await seedTeam();
   await seedCisMembers();
-  await seedContent();
+
+  // EVENTS/ARTICLES/ANNOUNCEMENTS below are invented demo content, inserted as
+  // `status: "published"`. They exist so a local database has something in
+  // every section and the filters/pagination can be exercised. They must never
+  // reach the public site: people would try to register for events that do not
+  // exist. Opt in explicitly, and only against a local database.
+  if (process.env.SEED_DEMO_CONTENT === "1") {
+    assertLocalDatabase();
+    await seedContent();
+  } else {
+    console.log(
+      "• demo content skipped (set SEED_DEMO_CONTENT=1 for local dev)",
+    );
+  }
+
   await etlFromLegacy();
   await promoteAdmin();
   console.log("Done.");
