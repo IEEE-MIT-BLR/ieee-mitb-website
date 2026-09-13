@@ -8,6 +8,7 @@ export default function Footer() {
   const external = [
     { name: "LinkedIn", href: siteConfig.socials.linkedin },
     { name: "Instagram", href: siteConfig.socials.instagram },
+    { name: "WhatsApp", href: siteConfig.socials.whatsapp },
     { name: "Email", href: `mailto:${siteConfig.email}` },
   ];
 

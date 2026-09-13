@@ -52,13 +52,6 @@ const SOCIETIES: Array<{
       "Founded in 1952, IEEE APS advances the theory, design, and application of antennas and electromagnetic wave propagation. Its scope includes antenna theory, propagation modeling, remote sensing, and radar. Globally, APS connects over 8,000 members, publishes leading journals, and hosts the flagship IEEE International Symposium. The MIT B'luru student chapter inspires research, offers hands-on workshops, design challenges, and connects students to global opportunities, travel grants, and industry experts.",
   },
   {
-    slug: "computer-society",
-    name: "Computer Society",
-    type: "society",
-    about:
-      "IEEE Computer Society is one of the largest global chapters, uniting computer science professionals across hardware, software, AI/ML, and app development. At MIT B'luru, IEEE CS hosts events on cutting-edge topics, fosters competitive coding, and provides a platform for learning, networking, and innovation in all fields of computing.",
-  },
-  {
     slug: "computational-intelligence",
     name: "Computational Intelligence Society",
     type: "society",
@@ -67,6 +60,13 @@ const SOCIETIES: Array<{
     instagram:
       "https://www.instagram.com/ieee_cis.mitblr?igsh=emVrbHNudWNxbXdj",
     linkedin: "https://www.linkedin.com/company/ieee-cis-mitblr",
+  },
+  {
+    slug: "computer-society",
+    name: "Computer Society",
+    type: "society",
+    about:
+      "IEEE Computer Society is one of the largest global chapters, uniting computer science professionals across hardware, software, AI/ML, and app development. At MIT B'luru, IEEE CS hosts events on cutting-edge topics, fosters competitive coding, and provides a platform for learning, networking, and innovation in all fields of computing.",
   },
   {
     slug: "engineering-in-medicine-and-biology",
@@ -104,11 +104,11 @@ const SOCIETIES: Array<{
       "IEEE RAS MITB unites students from diverse fields to collaborate on robotics, automation, AI/ML, and electronics. We design impactful solutions, publish research, and explore real-world tech through hands-on projects and technical discussions. RAS provides a vibrant platform to push boundaries, exchange knowledge, and drive the future of intelligent systems.",
   },
   {
-    slug: "vehicular-technology",
-    name: "Vehicular Technology Society",
+    slug: "signal-processing",
+    name: "Signal Processing Society",
     type: "society",
     about:
-      "IEEE VTS focuses on the theoretical, experimental, and operational aspects of electrical and electronic engineering in mobile radio, motor vehicles, and land transportation. The MIT B'luru chapter explores connected vehicles, intelligent transport systems, and automotive electronics, offering workshops, research opportunities, and industry engagement.",
+      "IEEE SPS is the Institute's oldest society, founded in 1948, and the home of signal processing research — audio and speech, image and video, sensing, communications, and machine learning for signals. It publishes the IEEE Transactions on Signal Processing and hosts ICASSP, the field's flagship conference. The MIT B'luru chapter turns that theory into practice with hands-on work across audio, computer vision, and applied machine learning.",
   },
   {
     slug: "systems-man-and-cybernetics",
@@ -118,11 +118,11 @@ const SOCIETIES: Array<{
       "IEEE SMC advances the theory, design, and application of systems science and engineering, human-machine systems, and cybernetics — spanning decision support, autonomy, human factors, and intelligent control. Globally, SMC publishes leading journals and hosts the annual IEEE International Conference on Systems, Man, and Cybernetics. The MIT B'luru chapter explores how complex systems and the people who use them interact, through workshops and projects that connect control, computing, and human-centred design.",
   },
   {
-    slug: "signal-processing",
-    name: "Signal Processing Society",
+    slug: "vehicular-technology",
+    name: "Vehicular Technology Society",
     type: "society",
     about:
-      "IEEE SPS is the Institute's oldest society, founded in 1948, and the home of signal processing research — audio and speech, image and video, sensing, communications, and machine learning for signals. It publishes the IEEE Transactions on Signal Processing and hosts ICASSP, the field's flagship conference. The MIT B'luru chapter turns that theory into practice with hands-on work across audio, computer vision, and applied machine learning.",
+      "IEEE VTS focuses on the theoretical, experimental, and operational aspects of electrical and electronic engineering in mobile radio, motor vehicles, and land transportation. The MIT B'luru chapter explores connected vehicles, intelligent transport systems, and automotive electronics, offering workshops, research opportunities, and industry engagement.",
   },
   {
     slug: "women-in-engineering",

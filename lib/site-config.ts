@@ -21,6 +21,8 @@ export const siteConfig = {
   socials: {
     linkedin: "https://www.linkedin.com/company/ieee-mit-bangalore/",
     instagram: "https://instagram.com/ieee.mitb",
+    /** Public join link for the branch community group. */
+    whatsapp: "https://chat.whatsapp.com/G4ObpTcWYVlC1Vba2UTHWb",
   },
   /** Primary navigation shown in the navbar. */
   nav: [
